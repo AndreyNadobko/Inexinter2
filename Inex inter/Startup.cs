@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Inex_inter.Domain;
 using Inex_inter.Domain.Repositories.Abstract;
 using Inex_inter.Domain.Repositories.EntityFramework;
@@ -32,7 +33,8 @@ namespace Inex_inter
             //подключаем локализацию 
             services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
             services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-            
+            services.AddControllersWithViews();
+        
             services.AddRouting();
             //подключаем конфиг из appsetting.json
             Configuration.Bind("Project", new Config());
