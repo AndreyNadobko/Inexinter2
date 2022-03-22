@@ -17,7 +17,7 @@ using Inex_inter.Domain.Repositories.Abstract;
 using Inex_inter.Domain.Repositories.EntityFramework;
 
 using Inex_inter.Service;
-
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace Inex_inter
 {
@@ -29,6 +29,10 @@ namespace Inex_inter
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //подключаем локализацию 
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+            
             services.AddRouting();
             //подключаем конфиг из appsetting.json
             Configuration.Bind("Project", new Config());
@@ -101,6 +105,16 @@ namespace Inex_inter
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //localization
+            var supportedCultres = new[] { "en", "ru"  };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultres[0])
+                .AddSupportedCultures(supportedCultres)
+                .AddSupportedUICultures(supportedCultres);
+
+            app.UseRequestLocalization(localizationOptions);
+
+
             
             //Регистрация нужных маршрутов (ендпоинты)
             app.UseEndpoints(endpoints =>
