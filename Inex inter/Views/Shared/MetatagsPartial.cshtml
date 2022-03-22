@@ -1,0 +1,27 @@
+@using Inex_inter.Service
+<meta charset="UTF-8"/>
+    <meta name="description" content="Sona Template" />
+    <meta name="keywords" content="Sona, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sona | Template</title />
+
+@if (ViewBag.Title != null)
+{
+    <title>@ViewBag.Title </title>
+}
+else
+{
+    <title>@Config.CompanyName </title>
+}
+@if (ViewBag.Description != null)
+{
+    <meta name="description" content="@ViewBag.Description" />
+}
+@if (ViewBag.Keywords != null)
+{
+    <meta name="keywords" content="@ViewBag.Keywords" />
+}
+
+
+

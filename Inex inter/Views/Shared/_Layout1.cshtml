@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+ <link rel="shortcut icon" href="/img/favicon2.gif" type="image/x-icon">
+
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+     
+    
+    <div id="main">
+        <div>
+            <div>
+                <div>
+                    @RenderBody()
+                </div>
+               
+            </div>
+           
+        </div>
+    
+     </div>   
+     
+     </div>
+     @await Html.PartialAsync("FooterPartial")
+     </div>
+      @await Html.PartialAsync("ScriptsPartial")
+     </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    
+    <!-- Offcanvas Menu Section End -->
+    
+    
+
+    <!-- Header Section Begin -->
+    
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    
+    <!-- Hero Section End -->
+    
+     
+    <!-- About Us Section Begin -->
+    
+    <!-- About Us Section End -->
+    
+     
+   
+
+    <!-- Home Room Section Begin -->
+ 
+    <!-- Home Room Section End -->
+
+    
+   
+
+   
+
+    <!-- Footer Section Begin -->
+    
+    <!-- Footer Section End -->
+    
+    
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+</body>
+    
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+   
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script> 
+   @* <script src="js/scripts.min.js"></script>*@
+</html>
