@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BookingYourHotel" xml:space="preserve">
-    <value>Booking Your Hotel!</value>
+    <value>Inexrezerv!</value>
+  </data>
+  <data name="SonaALuxuryHotel" xml:space="preserve">
+    <value>InexInter!</value>
   </data>
 </root>

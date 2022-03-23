@@ -24,7 +24,7 @@ namespace Inex_inter.Controllers
 
 
 
-            public IActionResult Index()
+            public IActionResult Index() 
             {
                 var test = _localizer["BookingYourHotel"];
                 return View();

@@ -48,4 +48,10 @@
     <PackageReference Include="Rick.Docs.Samples.RouteInfo" Version="1.0.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Home\Index.en.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

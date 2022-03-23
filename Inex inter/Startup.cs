@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,13 +13,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.AspNetCore.Localization;
 using Inex_inter.Domain;
 using Inex_inter.Domain.Repositories.Abstract;
 using Inex_inter.Domain.Repositories.EntityFramework;
-
 using Inex_inter.Service;
 using Microsoft.AspNetCore.Mvc.Razor;
+
 
 namespace Inex_inter
 {
@@ -30,11 +31,10 @@ namespace Inex_inter
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //подключаем локализацию 
-            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
-            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-            services.AddControllersWithViews();
-        
+            //подключаем локализацию представлений
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddControllersWithViews()
+                .AddViewLocalization();
             services.AddRouting();
             //подключаем конфиг из appsetting.json
             Configuration.Bind("Project", new Config());
@@ -109,15 +109,22 @@ namespace Inex_inter
             app.UseAuthorization();
 
             //localization
-            var supportedCultres = new[] { "en", "ru"  };
-            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultres[0])
-                .AddSupportedCultures(supportedCultres)
-                .AddSupportedUICultures(supportedCultres);
+            app.UseDeveloperExceptionPage();
 
-            app.UseRequestLocalization(localizationOptions);
+            var supportedCultures = new[]
+            {
+                new CultureInfo("en"),
+                new CultureInfo("ru"),
+                new CultureInfo("de")
+            };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
 
 
-            
             //Регистрация нужных маршрутов (ендпоинты)
             app.UseEndpoints(endpoints =>
             {
